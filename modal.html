@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepSeek Agent Modal</title>
+  <link rel="stylesheet" href="modal.css">
+</head>
+<body>
+  <div id="agent-modal-container">
+    <div class="agent-modal-overlay">
+      <div class="agent-modal-content">
+        <div class="modal-header">
+          <h2>🤖 DeepSeek Agent Mode</h2>
+          <button class="close-btn" id="close-modal">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+          <div class="tab-container">
+            <div class="tabs">
+              <button class="tab-btn active" data-tab="project">Project Setup</button>
+              <button class="tab-btn" data-tab="versions">Version History</button>
+              <button class="tab-btn" data-tab="settings">Settings</button>
+            </div>
+            
+            <!-- Project Tab -->
+            <div class="tab-content active" id="project-tab">
+              <div class="project-form">
+                <div class="form-group">
+                  <label for="project-name">Project Name:</label>
+                  <input type="text" id="project-name" placeholder="my-ai-project" />
+                </div>
+
+                <div class="form-group">
+                  <label for="project-type">Project Type:</label>
+                  <select id="project-type">
+                    <option value="fullstack">Full-Stack Web App</option>
+                    <option value="frontend">Frontend Only</option>
+                    <option value="backend">Backend API</option>
+                    <option value="chrome-extension">Chrome Extension</option>
+                    <option value="node-cli">Node.js CLI Tool</option>
+                    <option value="ai-service">AI Service</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="tech-stack">Technology Stack:</label>
+                  <div class="tech-options">
+                    <label><input type="checkbox" name="tech" value="react" checked> React</label>
+                    <label><input type="checkbox" name="tech" value="nodejs" checked> Node.js</label>
+                    <label><input type="checkbox" name="tech" value="mongodb"> MongoDB</label>
+                    <label><input type="checkbox" name="tech" value="express"> Express</label>
+                    <label><input type="checkbox" name="tech" value="python"> Python</label>
+                    <label><input type="checkbox" name="tech" value="fastapi"> FastAPI</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="custom-instructions">Custom Instructions for LLM:</label>
+                  <textarea id="custom-instructions" rows="4" placeholder="Describe your project requirements, specific features, architecture preferences, or any special instructions for the AI agent..."></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="project-description">Project Description:</label>
+                  <textarea id="project-description" rows="3" placeholder="Detailed description of what this project should do..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button id="generate-project" class="btn-primary">Generate Project</button>
+                  <button id="regenerate-project" class="btn-secondary">Regenerate Current Version</button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Versions Tab -->
+            <div class="tab-content" id="versions-tab">
+              <div class="versions-container">
+                <h3>Project Versions</h3>
+                <div id="versions-list" class="versions-list">
+                  <div class="no-versions">No project versions generated yet.</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Settings Tab -->
+            <div class="tab-content" id="settings-tab">
+              <div class="settings-form">
+                <div class="form-group">
+                  <label>
+                    <input type="checkbox" id="auto-save" checked>
+                    Auto-save all versions
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label>
+                    <input type="checkbox" id="include-docs" checked>
+                    Include documentation in projects
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label>
+                    <input type="checkbox" id="include-tests" checked>
+                    Include test files
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label for="code-style">Preferred Code Style:</label>
+                  <select id="code-style">
+                    <option value="standard">Standard JavaScript</option>
+                    <option value="airbnb">Airbnb Style</option>
+                    <option value="google">Google Style</option>
+                    <option value="custom">Custom</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <button id="export-settings" class="btn-secondary">Export Settings</button>
+                  <button id="import-settings" class="btn-secondary">Import Settings</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="modal.js"></script>
+</body>
+</html>
